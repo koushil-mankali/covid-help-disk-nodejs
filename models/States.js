@@ -9,4 +9,4 @@ let States = new Schema({
   },
 });
 
-module.exports = mongoose.model("states", States);
+module.exports = mongoose.model("states", States);  

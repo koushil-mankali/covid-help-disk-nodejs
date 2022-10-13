@@ -149,7 +149,7 @@ exports.updateMedicineData = (req, res) => {
       console.log("errrr", err);
       return res
         .status(500)
-        .json({ result: false, mess: "Something went wrong!" });
+        .json({ result: false, mess: "Something went wrong!", err: err?.message, error: err });
     });
 };
 
@@ -189,6 +189,8 @@ exports.getHospitalStockData = (req, res) => {
       return res.status(500).json({
         result: "false",
         mess: "Failed to Fetch Data!",
+        err: err?.message,
+        error: err,
       });
     });
 };
@@ -227,7 +229,12 @@ exports.updateHospitalStockData = (req, res) => {
     .catch((err) => {
       return res
         .status(500)
-        .json({ result: false, mess: "Unable to updat data!" });
+        .json({
+          result: false,
+          mess: "Unable to updat data!",
+          err: err?.message,
+          error: err,
+        });
     });
 };
 
@@ -272,6 +279,11 @@ exports.registerHospitalData = (req, res) => {
     .catch((err) => {
       return res
         .status(500)
-        .json({ result: false, mess: "Unable to add you'r details!" });
+        .json({
+          result: false,
+          mess: "Unable to add you'r details!",
+          err: err?.message,
+          error: err,
+        });
     });
 };
